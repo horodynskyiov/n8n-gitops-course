@@ -33,14 +33,14 @@ spec:
     service:
       type: ClusterIP
 
-ingress:
-  enabled: true
-  className: traefik
-  hosts:
-    - host: n8n.staging.local
-      paths:
-        - path: /
-          pathType: Prefix
+    ingress:
+      enabled: true
+      className: traefik
+      hosts:
+        - host: n8n.staging.local
+          paths:
+            - path: /
+              pathType: Prefix
 
     db:
       type: postgresdb
