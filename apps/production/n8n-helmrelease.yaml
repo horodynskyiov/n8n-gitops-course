@@ -32,7 +32,7 @@ spec:
 
     config:
       task_runner:
-        enabled: "false"
+        enabled: false
 
     image:
       repository: n8nio/n8n
