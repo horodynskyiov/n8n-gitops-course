@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../infrastructure/n8n-chart
+  - db-secret-app.yaml
+  - db-secret-superuser.yaml
+  - cnpg-cluster.yaml
+  - n8n-helmrelease.yaml

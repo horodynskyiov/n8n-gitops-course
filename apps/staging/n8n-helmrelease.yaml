@@ -1,0 +1,57 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: n8n
+  namespace: staging
+spec:
+  interval: 10m
+
+  chart:
+    spec:
+      chart: n8n
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: community-charts
+        namespace: flux-system
+
+  install:
+    disableWait: true
+    remediation:
+      retries: 3
+
+  upgrade:
+    disableWait: true
+    remediation:
+      retries: 3
+
+  values:
+    image:
+      repository: n8nio/n8n
+      tag: ""
+
+    service:
+      type: ClusterIP
+
+ingress:
+  enabled: true
+  className: traefik
+  hosts:
+    - host: n8n.staging.local
+      paths:
+        - path: /
+          pathType: Prefix
+
+    db:
+      type: postgresdb
+
+    externalPostgresql:
+      host: n8n-db-rw
+      port: 5432
+      database: n8n
+      username: n8n
+      existingSecret: n8n-db-app
+
+    main:
+      count: 1
+
