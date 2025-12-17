@@ -6,4 +6,4 @@ resources:
   - db-secret-app.yaml
   - cnpg-cluster.yaml
   - n8n-helmrelease.yaml
-  - redis-helmrelease.yaml
+  - redis.yaml
