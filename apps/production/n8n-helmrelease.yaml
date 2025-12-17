@@ -55,7 +55,6 @@ spec:
     externalRedis:
       host: n8n-redis-master
       port: 6379
-      username: default
 
     main:
       count: 1
@@ -73,19 +72,7 @@ spec:
         enabled: true
         minReplicas: 2
         maxReplicas: 5
-        metrics:
-          - type: Resource
-            resource:
-              name: cpu
-              target:
-                type: Utilization
-                averageUtilization: 80
-          - type: Resource
-            resource:
-              name: memory
-              target:
-                type: Utilization
-                averageUtilization: 80
+        targetCPUUtilizationPercentage: 80
       resources:
         requests:
           cpu: 200m
