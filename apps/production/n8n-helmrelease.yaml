@@ -25,6 +25,10 @@ spec:
     remediation:
       retries: 3
 
+    config:
+      task_runner:
+        enabled: false
+
   values:
     image:
       repository: n8nio/n8n
