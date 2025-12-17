@@ -26,9 +26,13 @@ spec:
       retries: 3
 
   values:
+    extraEnv:
+      - name: N8N_RUNNERS_ENABLED
+        value: "false"
+
     config:
       task_runner:
-        enabled: false
+        enabled: "false"
 
     image:
       repository: n8nio/n8n
